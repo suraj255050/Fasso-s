@@ -19,7 +19,7 @@ select count(distinct customer_id) from customer_orders;
 Q.3 how many successful order were delivered by each driver?
 /* --------- SOLUTION --------- */
 select driver_id ,count(distinct order_id) from driver_order
- where cancellation not in ('cancellation','cuatomer cancellation')
+ where cancellation not in ('cancellation','customer cancellation')
  group by driver_id;
  
  Q.4 how many of each type of roll was delivered?
@@ -28,7 +28,7 @@ select roll_id,count(roll_id)
 from customer_orders 
 where order_id in (
 select order_id from
-(select *,case when	cancellation in  ('cancellation','cuatomer cancellation') then 'c' else 'nc' end as order_cancel_details from driver_order)a 
+(select *,case when	cancellation in  ('cancellation','customer cancellation') then 'c' else 'nc' end as order_cancel_details from driver_order)a 
 where order_cancel_details='nc') 
 group by roll_id;
 
