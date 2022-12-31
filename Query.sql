@@ -50,7 +50,7 @@ select order_id,count(roll_id) cnt
 from(
 select * from customer_orders
 where order_id in(select order_id from
-(select *,case when cancellation in  ('cancellation','cuatomer cancellation') then 'c' else 'nc' end as order_cancel_details from driver_order)a 
+(select *,case when cancellation in  ('cancellation','customer cancellation') then 'c' else 'nc' end as order_cancel_details from driver_order)a 
 where order_cancel_details='nc'))b
 group by order_id
 )C)d where rnk=1;
