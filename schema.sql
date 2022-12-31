@@ -1,3 +1,5 @@
+#creating a separate database useing MYSQL WORKBENCH 8.0 CE 
+
 create database faaso;
 CREATE TABLE driver(driver_id integer,reg_date date); 
 
